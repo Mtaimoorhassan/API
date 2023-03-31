@@ -33,12 +33,15 @@
                                                 </constraints>
                                                 <color key="tintColor" systemColor="labelColor"/>
                                                 <state key="normal" backgroundImage="location.circle.fill" catalog="system"/>
+                                                <connections>
+                                                    <action selector="myLocationBtnPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="bEp-Ts-dm7"/>
+                                                </connections>
                                             </button>
                                             <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="249" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Search" textAlignment="right" clearsOnBeginEditing="YES" minimumFontSize="12" translatesAutoresizingMaskIntoConstraints="NO" id="uCL-ZN-9Bg">
                                                 <rect key="frame" x="50" y="0.0" width="253" height="40"/>
                                                 <color key="backgroundColor" systemColor="systemFillColor"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="25"/>
-                                                <textInputTraits key="textInputTraits"/>
+                                                <textInputTraits key="textInputTraits" autocapitalizationType="words" returnKeyType="search"/>
                                             </textField>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ja0-um-NPl">
                                                 <rect key="frame" x="313" y="0.99999999999999645" width="40" height="38.333333333333329"/>
@@ -48,6 +51,9 @@
                                                 </constraints>
                                                 <color key="tintColor" systemColor="labelColor"/>
                                                 <state key="normal" backgroundImage="magnifyingglass" catalog="system"/>
+                                                <connections>
+                                                    <action selector="searchBtnPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="3pv-5o-qtu"/>
+                                                </connections>
                                             </button>
                                         </subviews>
                                     </stackView>
@@ -107,6 +113,12 @@
                             <constraint firstAttribute="trailing" secondItem="lsY-mF-uKK" secondAttribute="trailing" id="tQS-QG-yo5"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="image" destination="BSR-su-skz" id="HBL-3K-yCW"/>
+                        <outlet property="location" destination="TYP-h7-Ozz" id="EXL-lI-fLo"/>
+                        <outlet property="searchTextField" destination="uCL-ZN-9Bg" id="vnc-6S-wWW"/>
+                        <outlet property="temperature" destination="pfZ-Lq-CkE" id="q8b-g1-OyB"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>

@@ -13,8 +13,6 @@
 		BDA77ED529D2E69F007749A4 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BDA77ED329D2E69F007749A4 /* Main.storyboard */; };
 		BDA77ED729D2E6A1007749A4 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BDA77ED629D2E6A1007749A4 /* Assets.xcassets */; };
 		BDA77EDA29D2E6A1007749A4 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BDA77ED829D2E6A1007749A4 /* LaunchScreen.storyboard */; };
-		BDA77EE329D2E748007749A4 /* dark_background.pdf in Resources */ = {isa = PBXBuildFile; fileRef = BDA77EE129D2E748007749A4 /* dark_background.pdf */; };
-		BDA77EE429D2E748007749A4 /* light_background.pdf in Resources */ = {isa = PBXBuildFile; fileRef = BDA77EE229D2E748007749A4 /* light_background.pdf */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -26,8 +24,6 @@
 		BDA77ED629D2E6A1007749A4 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		BDA77ED929D2E6A1007749A4 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		BDA77EDB29D2E6A1007749A4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		BDA77EE129D2E748007749A4 /* dark_background.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; name = dark_background.pdf; path = "../../API Handling/Clima/dark_background.pdf"; sourceTree = "<group>"; };
-		BDA77EE229D2E748007749A4 /* light_background.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; name = light_background.pdf; path = "../../API Handling/Clima/light_background.pdf"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -67,8 +63,6 @@
 				BDA77ED629D2E6A1007749A4 /* Assets.xcassets */,
 				BDA77ED829D2E6A1007749A4 /* LaunchScreen.storyboard */,
 				BDA77EDB29D2E6A1007749A4 /* Info.plist */,
-				BDA77EE129D2E748007749A4 /* dark_background.pdf */,
-				BDA77EE229D2E748007749A4 /* light_background.pdf */,
 			);
 			path = "Weather App API";
 			sourceTree = "<group>";
@@ -131,8 +125,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				BDA77EE429D2E748007749A4 /* light_background.pdf in Resources */,
-				BDA77EE329D2E748007749A4 /* dark_background.pdf in Resources */,
 				BDA77EDA29D2E6A1007749A4 /* LaunchScreen.storyboard in Resources */,
 				BDA77ED729D2E6A1007749A4 /* Assets.xcassets in Resources */,
 				BDA77ED529D2E69F007749A4 /* Main.storyboard in Resources */,
