@@ -34,7 +34,7 @@ class ViewController: UIViewController, UITextFieldDelegate {
         cityName = searchTextField.text ?? "Lahore"
         print(cityName)
         if cityName == "" {
-            showSimpleAlert(message: "Fill Text Fields")
+            climate.showSimpleAlert(message: "Fill Text Fields", viewController: self)
         } else {
             fetchData()
         }
@@ -69,7 +69,7 @@ class ViewController: UIViewController, UITextFieldDelegate {
                 }
             }
             if let error {DispatchQueue.main.async { [self] in
-            showSimpleAlert(message: error.localizedDescription)
+                climate.showSimpleAlert(message: error.localizedDescription, viewController: self)
             }
                 
             }
@@ -77,16 +77,7 @@ class ViewController: UIViewController, UITextFieldDelegate {
         task.resume()
     }
     
-    //MARK: showSimpleAlert
-    func showSimpleAlert(message : String) {
-        let alert = UIAlertController(title: "Error!", message: message,  preferredStyle: UIAlertController.Style.alert)
-        
-        alert.addAction(UIAlertAction(title: "Ok", style: UIAlertAction.Style.default, handler: { _ in
-        }))
-        
-        self.present(alert, animated: true, completion: nil)
-    }
-    
+  
     //MARK: UI Update
     func updateUI(decode: WeatherData) {
         let temp = String(format: "%.0f", decode.main?.temp ?? -1)
@@ -123,7 +114,7 @@ class ViewController: UIViewController, UITextFieldDelegate {
           case 600 ... 622:
                   return "cloud.snow"
               
-          case 700 ... 881:
+          case 700 ... 781:
                   return "cloud"
               
           case 800:

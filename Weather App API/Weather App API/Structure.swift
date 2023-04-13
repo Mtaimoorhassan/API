@@ -5,6 +5,7 @@
 //  Created by Taimoor Hassan on 04/04/2023.
 //
 import Foundation
+import UIKit
 
 // MARK: - WeatherData
 struct WeatherData: Codable {
@@ -28,6 +29,15 @@ struct WeatherData: Codable {
         
     }
     
+    //MARK: showSimpleAlert
+    func showSimpleAlert(message : String , viewController :UIViewController) {
+        let alert = UIAlertController(title: "Error!", message: message,  preferredStyle: UIAlertController.Style.alert)
+        
+        alert.addAction(UIAlertAction(title: "Ok", style: UIAlertAction.Style.default, handler: { _ in
+        }))
+        
+        viewController.present(alert, animated: true, completion: nil)
+    }
     
     
 }
