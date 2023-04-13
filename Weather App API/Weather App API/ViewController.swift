@@ -13,11 +13,12 @@ class ViewController: UIViewController, UITextFieldDelegate {
     @IBOutlet weak var temperature: UILabel!
     @IBOutlet weak var image: UIImageView!
     @IBOutlet weak var searchTextField: UITextField!
+    @IBOutlet weak var descriptionLbl: UILabel!
     
     var climate = WeatherData()
+    var wData = Weather()
     var cityName = ""
     var activityView: UIActivityIndicatorView?
-    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -25,6 +26,8 @@ class ViewController: UIViewController, UITextFieldDelegate {
         temperature.text = "22"
         location.text = "Current Position"
     }
+    
+    //MARK: Search Location Button Pressed
     
     @IBAction func searchBtnPressed(_ sender: Any) {
         searchTextField.endEditing(true)
@@ -34,15 +37,15 @@ class ViewController: UIViewController, UITextFieldDelegate {
             showSimpleAlert(message: "Fill Text Fields")
         } else {
             fetchData()
-            
         }
-        
     }
+    //MARK: Current Location Button Pressed
     
     @IBAction func currentLocationPressed(_ sender: Any) {
         print("Self Current Location Btn Pressed.")
     }
     
+    //MARK: FetchData
     func fetchData() {
         // creating url
         let url = climate.getAPIUrl(name: cityName)
@@ -54,7 +57,7 @@ class ViewController: UIViewController, UITextFieldDelegate {
             if let data {
                 if let decoding = try? JSONDecoder().decode(WeatherData.self, from: data) {
                     self.climate = decoding
-                    print(decoding)
+                    print("This is API Decoded:", decoding)
                     
                     // background thread to main thread.
                     
@@ -66,7 +69,7 @@ class ViewController: UIViewController, UITextFieldDelegate {
                 }
             }
             if let error {DispatchQueue.main.async { [self] in
-                showSimpleAlert(message: error.localizedDescription)
+            showSimpleAlert(message: error.localizedDescription)
             }
                 
             }
@@ -74,24 +77,64 @@ class ViewController: UIViewController, UITextFieldDelegate {
         task.resume()
     }
     
-    
+    //MARK: showSimpleAlert
     func showSimpleAlert(message : String) {
         let alert = UIAlertController(title: "Error!", message: message,  preferredStyle: UIAlertController.Style.alert)
         
         alert.addAction(UIAlertAction(title: "Ok", style: UIAlertAction.Style.default, handler: { _ in
-            //Cancel Action
         }))
         
         self.present(alert, animated: true, completion: nil)
     }
+    
     //MARK: UI Update
     func updateUI(decode: WeatherData) {
         let temp = String(format: "%.0f", decode.main?.temp ?? -1)
         self.cityName = decode.name!
+
+        print(temp ,"is the temperatue in ",cityName)
+
         self.temperature.text = "\(temp)"
+        self.descriptionLbl.text = decode.weather?[0].description
         self.location.text = decode.name!
-        let newImg: UIImage? = UIImage(systemName: "face.smiling")
-        image.image = newImg
+       
+        let imageName = fetchImage(weatherID: decode.weather?[0].id ?? -1)
+        print("------------------------------")
+        print(imageName)
+        print("------------------------------")
+        image.image = UIImage(systemName: imageName)
         
     }
+    //MARK: fetchImage
+    func fetchImage(weatherID:Int) -> String {
+        
+        print("Fetch Image Function Called")
+        
+          switch (weatherID) {
+           case 200 ... 232:
+              return "cloud.bolt"
+              
+          case 300 ... 321:
+                  return "cloud.rain"
+              
+          case 500 ... 531:
+                  return "cloud.sun.rain"
+                            
+          case 600 ... 622:
+                  return "cloud.snow"
+              
+          case 700 ... 881:
+                  return "cloud"
+              
+          case 800:
+                  return "sun.max"
+              
+          case 801 ... 805:
+                  return "cloud.sun"
+          default:
+               return "face.dashed"
+        }
+    }
+    
 }
+

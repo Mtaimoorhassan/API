@@ -27,6 +27,9 @@ struct WeatherData: Codable {
         return URL(string: url)!
         
     }
+    
+    
+    
 }
 
 // MARK: - Clouds
